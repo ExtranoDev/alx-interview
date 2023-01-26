@@ -1,5 +1,11 @@
+#!/usr/bin/python3
+"""
+Function calculates and generates a pascal triangle
+"""
 def pascal_triangle(n):
     """Script generated a pascal list
+        args:
+            n(int): size of triangle
     """
     DEF_V = 1
     if n <= 0:
