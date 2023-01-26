@@ -1,4 +1,6 @@
 def pascal_triangle(n):
+    """Script generated a pascal list
+    """
     DEF_V = 1
     if n <= 0:
         return []
