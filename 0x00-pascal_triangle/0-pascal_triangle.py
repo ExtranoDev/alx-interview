@@ -2,6 +2,8 @@
 """
 Function calculates and generates a pascal triangle
 """
+
+
 def pascal_triangle(n):
     """Script generated a pascal list
         args:
