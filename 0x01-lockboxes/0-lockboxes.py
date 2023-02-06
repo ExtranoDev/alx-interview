@@ -14,5 +14,4 @@ def canUnlockAll(boxes):
         for box in boxes[i]:
             if box not in unboxed and box < len(boxes):
                 unboxed.append(box)
-    print(unboxed)
     return (len(unboxed) == len(boxes))
