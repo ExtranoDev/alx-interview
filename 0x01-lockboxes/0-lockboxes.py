@@ -2,6 +2,7 @@
 """Script solves the lockbox problem
 """
 
+
 def canUnlockAll(boxes):
     """method determines if all the boxes can be opened
         Args: boxes (list of list) - contains box to be opened"""
@@ -11,7 +12,8 @@ def canUnlockAll(boxes):
     index = 0
 
     for box in boxes:
-        if boxes[index] == []: break
+        if boxes[index] == []:
+            break
         for val in box:
             if val < box_length:
                 if boxes[val] not in box_cmp:
