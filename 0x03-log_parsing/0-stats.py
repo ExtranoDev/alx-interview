@@ -1,5 +1,6 @@
 #!/usr/bin/python3
-# Script reads stdin line by line and logs metrics
+"""Script reads stdin line by line and logs metrics
+"""
 import sys
 
 DEF_VAL = 9
