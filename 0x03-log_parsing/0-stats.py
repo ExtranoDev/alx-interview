@@ -8,18 +8,16 @@ import sys
 DEF_VAL = 9
 count = 0
 status = {"fsize": 0, "codes": dict()}
+codes = ["200", "301", "400", "401", "403", "404", "405", "500"]
 
 
 def printer(status):
     """
     Outputs formatted log
     """
-    codes = ["200", "301", "400", "401", "403", "404", "405", "500"]
     print("File size: {}".format(status["fsize"]))
-    for code in codes:
-        if code in status["codes"].keys():
-            val = status["codes"][code]
-            print("{}: {}".format(code, val))
+    for key, val in sorted(status["codes"].items()):
+        print("{}: {}".format(key, val))
 
 
 if __name__ == "__main__":
@@ -27,11 +25,12 @@ if __name__ == "__main__":
         for line in sys.stdin:
             count += 1
             stats = line.strip().split()
-            if stats[-2].isdecimal():
-                if stats[-2] in status["codes"].keys():
-                    status["codes"][stats[-2]] += 1
+            code = stats[-2]
+            if code in codes:
+                if code in status["codes"].keys():
+                    status["codes"][code] += 1
                 else:
-                    status["codes"][stats[-2]] = 1
+                    status["codes"][code] = 1
             status["fsize"] += int(stats[-1])
             if count == DEF_VAL:
                 count = 0
