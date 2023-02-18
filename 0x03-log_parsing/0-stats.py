@@ -27,15 +27,12 @@ if __name__ == "__main__":
         for line in sys.stdin:
             count += 1
             stats = line.strip().split()
-            try:
-                status["fsize"] += int(stats[-1])
-                if stats[-2].isdecimal():
-                    if stats[-2] in status["codes"].keys():
-                        status["codes"][stats[-2]] += 1
-                    else:
-                        status["codes"][stats[-2]] = 1
-            except Exception:
-                pass
+            if stats[-2].isdecimal():
+                if stats[-2] in status["codes"].keys():
+                    status["codes"][stats[-2]] += 1
+                else:
+                    status["codes"][stats[-2]] = 1
+            status["fsize"] += int(stats[-1])
             if count == DEF_VAL:
                 count = 0
                 printer(status)
