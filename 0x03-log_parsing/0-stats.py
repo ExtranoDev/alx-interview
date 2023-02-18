@@ -14,26 +14,31 @@ def printer(status):
     """
     Outputs formatted log
     """
+    codes = ["200", "301", "400", "401", "403", "404", "405", "500"]
     print("File size: {}".format(status["fsize"]))
-    status["codes"] = dict(sorted(status["codes"].items()))
-    for code, val in status["codes"].items():
-        print("{}: {}".format(code, val))
+    for code in codes:
+        if code in status["codes"].keys():
+            val = status["codes"][code]
+            print("{}: {}".format(code, val))
 
 
 if __name__ == "__main__":
     try:
         for line in sys.stdin:
-            stats = line.strip().split(" ")
-            if len(stats) == DEF_VAL:
-                count += 1
+            count += 1
+            stats = line.strip().split()
+            try:
                 status["fsize"] += int(stats[-1])
-                if type(int(stats[-2])) == int:
+                if stats[-2].isdecimal():
                     if stats[-2] in status["codes"].keys():
                         status["codes"][stats[-2]] += 1
                     else:
                         status["codes"][stats[-2]] = 1
+            except Exception:
+                pass
             if count == DEF_VAL:
                 count = 0
                 printer(status)
+        printer(status)
     finally:
         printer(status)
