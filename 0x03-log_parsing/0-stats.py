@@ -16,8 +16,10 @@ def printer(status):
     Outputs formatted log
     """
     print("File size: {}".format(status["fsize"]))
-    for key, val in sorted(status["codes"].items()):
-        print("{}: {}".format(key, val))
+    for code in codes:
+        if code in status["codes"].keys():
+            val = status["codes"][code]
+            print("{}: {}".format(code, val))
 
 
 if __name__ == "__main__":
