@@ -38,5 +38,5 @@ if __name__ == "__main__":
                 count = 0
                 printer(status)
         printer(status)
-    finally:
+    except KeyboardInterrupt:
         printer(status)
