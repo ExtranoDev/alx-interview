@@ -37,10 +37,8 @@ if __name__ == "__main__":
             except Exception:
                 pass
             if count == DEF_VAL:
-                print(count)
                 count = 0
                 printer(status)
-        print(count)
         printer(status)
     except KeyboardInterrupt:
         printer(status)
