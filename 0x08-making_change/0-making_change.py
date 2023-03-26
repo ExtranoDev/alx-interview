@@ -16,7 +16,8 @@ def makeChange(coins: list, total: int):
     count = 0
     while True:
         if total >= coins[idx]:
-            total -= coins[idx]
+            if (total - coins[idx]) >= 0:
+                total -= coins[idx]
             count += 1
         if total < coins[idx]:
             idx += 1
