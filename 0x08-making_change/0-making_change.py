@@ -25,5 +25,5 @@ def makeChange(coins: list, total: int) -> int:
         if total <= 0:
             return count
         if total < coins[i] and i == len(coins) - 1:
-           return -1
+            return -1
         i += 1
