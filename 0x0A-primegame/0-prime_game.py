@@ -4,7 +4,7 @@
 
 def isWinner(x: int, nums: list) -> str:
     """Determine winner based on Prime number rounds"""
-    if nums:
+    if nums and x > 0:
         players = {"Ben": 0, "Maria": 0}
         for i in nums:
             if i == 1:
